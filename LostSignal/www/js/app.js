@@ -52,7 +52,8 @@ angular.module('LostSignal', ['ionic', 'LostSignal.controllers'])
               url: "/getpoints",
               views: {
                   'menuContent': {
-                      templateUrl: "templates/getpoints.html"
+                      templateUrl: "templates/getpoints.html",
+                      controller: 'getPointCtrl'
                   }
               }
           })
@@ -61,7 +62,8 @@ angular.module('LostSignal', ['ionic', 'LostSignal.controllers'])
           url: "/mainpage",
           views: {
             'menuContent': {
-              templateUrl: "templates/mainpage.html"
+              templateUrl: "templates/mainpage.html",
+                controller: 'MapCtrl'
             }
           }
         });

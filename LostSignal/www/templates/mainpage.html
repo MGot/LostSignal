@@ -2,10 +2,10 @@
     <ion-nav-title class="bar-positive">
         Home
     </ion-nav-title>
-    <ion-content ng-controller="MapCtrl">
+    <ion-content>
         <div id="map" data-tap-disabled="true"></div>
     </ion-content>
     <ion-footer-bar class="bar-positive">
-            <button ng-click="centerOnMe()" class="button" style="border-style:none;width: 100%"><b>Center map</b></button>
+        <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
     </ion-footer-bar>
 </ion-view>

@@ -1,7 +1,7 @@
-angular.module('LostSignal', ['ionic', 'LostSignal.controllers'])
+angular.module('LostSignal.controllers', [])
 
     .controller('MapCtrl', function($scope, $ionicPlatform, $ionicLoading) {
-        alert('o kurwa');
+
         $ionicPlatform.ready(function() {
             var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
 
@@ -9,8 +9,7 @@ angular.module('LostSignal', ['ionic', 'LostSignal.controllers'])
                 center: myLatlng,
                 zoom: 16,
                 // disableDefaultUI: true // un-comment to remove default Maps UI
-                // map type options: HYBRID, ROADMAP, SATELLITE, TERRAIN
-                mapTypeId: google.maps.MapTypeId.ROADMAP
+                mapTypeId: google.maps.MapTypeId.HYBRID
             };
 
             var map = new google.maps.Map(document.getElementById("map"), mapOptions);
