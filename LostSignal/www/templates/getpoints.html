@@ -4,14 +4,14 @@
     </ion-nav-title>
     <ion-content>
         <h1>Pobieranie punktów o zadanym zakresie i pozycji</h1>
-        <div class="list">
+        <div class="list" ng-controller="getPointCtrl">
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Latitude</span>
-                <input type="number" step="any" required="true" min="-180" max="180" placeholder="Write latitude of your destination" ng-model="latitude">
+                <input type="number" step="any" required="true" min="0" max="360" placeholder="Write latitude of your destination" ng-model="latitude">
             </label>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Longitude</span>
-                <input type="number" step="any" required="true" min="-180" max="180" placeholder="Write longitude of your destination" ng-model="longitude">
+                <input type="number" step="any" required="true" min="0" max="360" placeholder="Write longitude of your destination" ng-model="longitude">
             </label>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Radius</span>

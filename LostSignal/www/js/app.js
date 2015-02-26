@@ -5,48 +5,46 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('LostSignal', ['ionic', 'LostSignal.controllers'])
-
     .run(function($ionicPlatform) {
-      $ionicPlatform.ready(function() {
+        $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
-        if (window.cordova && window.cordova.plugins.Keyboard) {
-          cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-        }
-        if (window.StatusBar) {
-          // org.apache.cordova.statusbar required
-          StatusBar.styleDefault();
-        }
-      });
+            if (window.cordova && window.cordova.plugins.Keyboard) {
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            }
+            if (window.StatusBar) {
+            // org.apache.cordova.statusbar required
+            StatusBar.styleDefault();
+            }
+        });
     })
 
 
     .config(function($stateProvider, $urlRouterProvider) {
-      $stateProvider
+        $stateProvider
 
-      .state('app', {
-        url: "/app",
-        abstract: true,
-        templateUrl: "templates/menu.html"
-      })
+            .state('app', {
+                url: "/app",
+                abstract: true,
+                templateUrl: "templates/menu.html"
+            })
+            .state('app.navigate', {
+                url: "/navigate",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/navigate.html"
+                    }
+                }
+            })
 
-      .state('app.navigate', {
-        url: "/navigate",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/navigate.html"
-          }
-        }
-      })
-
-      .state('app.heatmap', {
-        url: "/heatmap",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/heatmap.html"
-          }
-        }
-      })
+            .state('app.heatmap', {
+                url: "/heatmap",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/heatmap.html"
+                    }
+                }
+            })
 
           .state('app.getpoints', {
               url: "/getpoints",
@@ -59,11 +57,11 @@ angular.module('LostSignal', ['ionic', 'LostSignal.controllers'])
           })
 
           .state('app.mainpage', {
-          url: "/mainpage",
-          views: {
-            'menuContent': {
-              templateUrl: "templates/mainpage.html",
-                controller: 'MapCtrl'
+            url: "/mainpage",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/mainpage.html",
+                        controller: 'MapCtrl'
             }
           }
         });

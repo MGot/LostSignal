@@ -1,6 +1,4 @@
-angular.module('LostSignal.controllers', [])
-
-    .controller('getPointCtrl', function($scope) {
+app.controller("getPointCtrl",function($scope) {
         $scope.sendRequest = function() {
             alert('Latitude: ' + $scope.latitude + '\n' + 'Longitude: ' + $scope.longitude + '\n' + 'Radius: ' + $scope.radius);
 

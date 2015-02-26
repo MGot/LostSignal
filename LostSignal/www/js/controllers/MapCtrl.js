@@ -1,6 +1,4 @@
-angular.module('LostSignal.controllers', [])
-
-    .controller('MapCtrl', function($scope, $ionicPlatform, $ionicLoading) {
+app.controller("MapCtrl", function($scope, $ionicPlatform, $ionicLoading) {
 
         $ionicPlatform.ready(function() {
             var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
