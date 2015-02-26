@@ -6,66 +6,68 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('LostSignal', ['ionic', 'LostSignal.controllers'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-})
+    .run(function($ionicPlatform) {
+      $ionicPlatform.ready(function() {
+        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+        // for form inputs)
+        if (window.cordova && window.cordova.plugins.Keyboard) {
+          cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        }
+        if (window.StatusBar) {
+          // org.apache.cordova.statusbar required
+          StatusBar.styleDefault();
+        }
+      });
+    })
 
-.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
 
-  .state('app', {
-    url: "/app",
-    abstract: true,
-    templateUrl: "templates/menu.html",
-    controller: 'AppCtrl'
-  })
+    .config(function($stateProvider, $urlRouterProvider) {
+      $stateProvider
 
-  .state('app.navigate', {
-    url: "/navigate",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/navigate.html"
-      }
-    }
-  })
-
-  .state('app.heatmap', {
-    url: "/heatmap",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/heatmap.html"
-      }
-    }
-  })
-
-      .state('app.getpoints', {
-          url: "/getpoints",
-          views: {
-              'menuContent': {
-                  templateUrl: "templates/getpoints.html"
-              }
-          }
+      .state('app', {
+        url: "/app",
+        abstract: true,
+        templateUrl: "templates/menu.html"
       })
 
-      .state('app.mainpage', {
-      url: "/mainpage",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/mainpage.html"
+      .state('app.navigate', {
+        url: "/navigate",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/navigate.html"
+          }
         }
-      }
-    });
+      })
 
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/mainpage');
-});
+      .state('app.heatmap', {
+        url: "/heatmap",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/heatmap.html"
+          }
+        }
+      })
+
+          .state('app.getpoints', {
+              url: "/getpoints",
+              views: {
+                  'menuContent': {
+                      templateUrl: "templates/getpoints.html"
+                  }
+              }
+          })
+
+          .state('app.mainpage', {
+          url: "/mainpage",
+          views: {
+            'menuContent': {
+              templateUrl: "templates/mainpage.html"
+            }
+          }
+        });
+
+      // if none of the above states are matched, use this as the fallback
+      $urlRouterProvider.otherwise('/app/mainpage');
+
+
+    });
