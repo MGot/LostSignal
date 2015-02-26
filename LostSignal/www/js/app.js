@@ -47,7 +47,17 @@ angular.module('LostSignal', ['ionic', 'LostSignal.controllers'])
       }
     }
   })
-    .state('app.mainpage', {
+
+      .state('app.getpoints', {
+          url: "/getpoints",
+          views: {
+              'menuContent': {
+                  templateUrl: "templates/getpoints.html"
+              }
+          }
+      })
+
+      .state('app.mainpage', {
       url: "/mainpage",
       views: {
         'menuContent': {
