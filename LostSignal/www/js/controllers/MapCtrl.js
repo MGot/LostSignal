@@ -10,13 +10,17 @@ app.controller("MapCtrl", function($scope, $ionicPlatform, $ionicLoading) {
                 mapTypeId: google.maps.MapTypeId.HYBRID
             };
 
-            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-            $scope.map = map;
+            $scope.Map = map;
         });
 
+        $scope.clickTest = function() {
+            alert('Example of infowindow with ng-click')
+        };
+
         $scope.centerOnMe = function() {
-            if(!$scope.map) {
+            if(!$scope.Map) {
                 return;
             }
 
@@ -26,7 +30,7 @@ app.controller("MapCtrl", function($scope, $ionicPlatform, $ionicLoading) {
             });
 
             navigator.geolocation.getCurrentPosition(function(pos) {
-                $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+                $scope.Map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
                 $scope.loading.hide();
             }, function(error) {
                 alert('Unable to get location: ' + error.message);

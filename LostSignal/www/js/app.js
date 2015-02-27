@@ -41,7 +41,8 @@ angular.module('LostSignal', ['ionic', 'LostSignal.controllers'])
                 url: "/heatmap",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/heatmap.html"
+                        templateUrl: "templates/heatmap.html",
+                        controller: 'HeatMapCtrl'
                     }
                 }
             })
@@ -57,7 +58,7 @@ angular.module('LostSignal', ['ionic', 'LostSignal.controllers'])
           })
 
           .state('app.mainpage', {
-            url: "/mainpage",
+                url: "/mainpage",
                 views: {
                     'menuContent': {
                         templateUrl: "templates/mainpage.html",
