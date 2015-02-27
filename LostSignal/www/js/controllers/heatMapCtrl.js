@@ -1,3 +1,6 @@
+var hmap;
+var actualMarker;
+
 app.controller("HeatMapCtrl", function($scope, $ionicPlatform, $ionicLoading) {
 
     $ionicPlatform.ready(function() {
@@ -10,7 +13,7 @@ app.controller("HeatMapCtrl", function($scope, $ionicPlatform, $ionicLoading) {
             mapTypeId: google.maps.MapTypeId.HYBRID
         };
 
-        var hmap = new google.maps.Map(document.getElementById("heatmap-canvas"), mapOptions);
+        hmap = new google.maps.Map(document.getElementById("heatmap-canvas"), mapOptions);
 
         var dataPoints = [new google.maps.LatLng(37.782551, -122.445368),
             new google.maps.LatLng(37.782745, -122.444586),
@@ -68,6 +71,10 @@ app.controller("HeatMapCtrl", function($scope, $ionicPlatform, $ionicLoading) {
     });
 
     $scope.centerOnMe = function() {
+
+        if(actualMarker != null)
+            actualMarker.setMap(null);
+
         if(!$scope.heatmap) {
             return;
         }
@@ -78,7 +85,24 @@ app.controller("HeatMapCtrl", function($scope, $ionicPlatform, $ionicLoading) {
         });
 
         navigator.geolocation.getCurrentPosition(function(pos) {
-            $scope.heatmap.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+            var myLatlng  = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+            $scope.heatmap.setCenter(myLatlng);
+            actualMarker = new google.maps.Marker({
+                position: myLatlng,
+                map: hmap,
+                title:"Hello World!"
+            });
+            var infowindow = new google.maps.InfoWindow({
+                content:
+                '<p style="color:black">Actual position:' + myLatlng +'</p>' +
+                '<p style="color:black">Date: ' + new Date() + '</p>'
+                //+'<p style="color:black">Signal strength: ' + signal + '</p>'
+            });
+
+            google.maps.event.addListener(actualMarker, 'click', function() {
+                infowindow.open(hmap,actualMarker);
+            });
+
             $scope.loading.hide();
         }, function(error) {
             alert('Unable to get location: ' + error.message);

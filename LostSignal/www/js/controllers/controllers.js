@@ -1,1 +1,1 @@
-var app = angular.module('LostSignal.controllers', []);
+var app = angular.module('LostSignal.controllers', ['ionic']);

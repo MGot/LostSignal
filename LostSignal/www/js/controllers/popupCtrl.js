@@ -1,6 +1,5 @@
-app.controller("getPointCtrl",function($scope) {
+app.controller("PopupCtrl",function($scope, $ionicPopup) {
 
-    $scope.otherPoint = function() {
         // An elaborate, custom popup
         var myPopup = $ionicPopup.show({
             template: 'Get signal around actual position or some other point?',
@@ -23,18 +22,7 @@ app.controller("getPointCtrl",function($scope) {
                 }
             ]
         });
-    }
-
-
-    $scope.sendRequest = function() {
-        alert('Latitude: ' + $scope.latitude + '\n' + 'Longitude: ' + $scope.longitude + '\n' + 'Radius: ' + $scope.radius);
-
-            /*
-
-            WYSYŁANIE REQUESTA NA SERWER, ODBIERANIE I UMIESZCZANIE PUNKTÓW NA MAPACH
-
-             */
-        }
-
-
-    });
+        myPopup.then(function (res) {
+            console.log('Tapped!', res);
+        });
+});

@@ -1,3 +1,5 @@
+var map;
+
 app.controller("MapCtrl", function($scope, $ionicPlatform, $ionicLoading) {
 
         $ionicPlatform.ready(function() {
@@ -10,7 +12,7 @@ app.controller("MapCtrl", function($scope, $ionicPlatform, $ionicLoading) {
                 mapTypeId: google.maps.MapTypeId.HYBRID
             };
 
-            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+            map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
             $scope.Map = map;
         });

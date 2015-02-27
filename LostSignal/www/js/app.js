@@ -57,6 +57,7 @@ angular.module('LostSignal', ['ionic', 'LostSignal.controllers'])
               }
           })
 
+
           .state('app.mainpage', {
                 url: "/mainpage",
                 views: {
@@ -65,7 +66,15 @@ angular.module('LostSignal', ['ionic', 'LostSignal.controllers'])
                         controller: 'MapCtrl'
             }
           }
-        });
+        })
+            .state('app.settings', {
+                url: "/settings",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/settings.html"
+                    }
+                }
+            });
 
       // if none of the above states are matched, use this as the fallback
       $urlRouterProvider.otherwise('/app/mainpage');
